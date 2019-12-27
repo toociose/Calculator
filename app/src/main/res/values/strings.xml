@@ -1,7 +1,23 @@
 <resources>
     <string name="app_name">Calculator</string>
-    <string name="result">Result</string>
+    <string name="result">PlaceHolder</string>
     <string name="one">One</string>
-    <string name="add">Add</string>
+    <string name="two">Two</string>
+    <string name="three">Three</string>
+    <string name="four">Four</string>
+    <string name="five">Five</string>
+    <string name="six">Six</string>
+    <string name="seven">Seven</string>
+    <string name="eight">Eight</string>
+    <string name="nine">Nine</string>
+    <string name="add">Ten</string>
     <string name="equals">equals</string>
+    <string name="multiply">multiply</string>
+    <string name="divide">divide</string>
+    <string name="subtract">subtract</string>
+    <string name="picture">picture</string>
+    <string name="picture0">picture0</string>
+    <string name="picture4">picture4</string>
+    <string name="picture3">picture3</string>
+    <string name="picture2">picture2</string>
 </resources>
