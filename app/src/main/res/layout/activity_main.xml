@@ -17,6 +17,15 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.252" />
 
+    <ImageView
+        android:id="@+id/imageView4"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:contentDescription="@string/picturetree"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/tree" />
+
     <TextView
         android:id="@+id/textView"
         android:layout_width="194dp"
@@ -32,11 +41,11 @@
 
     <androidx.gridlayout.widget.GridLayout
         android:id="@+id/gridLayout"
-        android:layout_width="368dp"
-        android:layout_height="199dp"
+        android:layout_width="367dp"
+        android:layout_height="244dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.457"
+        app:layout_constraintHorizontal_bias="0.296"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.415">
@@ -138,6 +147,30 @@
             app:layout_column="2"
             app:layout_row="3" />
 
+        <Button
+            android:id="@+id/nine"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/nine"
+            app:layout_column="0"
+            app:layout_row="4" />
+
+        <Button
+            android:id="@+id/clear"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/clear"
+            app:layout_column="2"
+            app:layout_row="4" />
+
+        <Button
+            android:id="@+id/zero"
+            android:layout_width="186dp"
+            android:layout_height="wrap_content"
+            android:text="@string/zero"
+            app:layout_column="1"
+            app:layout_row="4" />
+
     </androidx.gridlayout.widget.GridLayout>
 
     <ImageView
@@ -147,35 +180,35 @@
         android:contentDescription="@string/picture2"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.784"
+        app:layout_constraintHorizontal_bias="0.367"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.908"
+        app:layout_constraintVertical_bias="0.935"
         app:srcCompat="@drawable/minus" />
 
     <ImageView
-        android:layout_width="91dp"
-        android:layout_height="52dp"
+        android:layout_width="75dp"
+        android:layout_height="70dp"
         android:contentDescription="@string/picture0"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.803"
+        app:layout_constraintHorizontal_bias="0.952"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.692"
+        app:layout_constraintVertical_bias="0.947"
         app:srcCompat="@drawable/divide" />
 
     <ImageView
         android:id="@+id/imageView3"
-        android:layout_width="75dp"
-        android:layout_height="55dp"
+        android:layout_width="71dp"
+        android:layout_height="70dp"
         android:contentDescription="@string/picture4"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.25"
+        app:layout_constraintHorizontal_bias="0.622"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.69"
+        app:layout_constraintVertical_bias="0.948"
         app:srcCompat="@drawable/multi" />
 
     <ImageView
@@ -185,10 +218,29 @@
         android:contentDescription="@string/picture3"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.25"
+        app:layout_constraintHorizontal_bias="0.095"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.905"
+        app:layout_constraintVertical_bias="0.946"
         app:srcCompat="@drawable/plus" />
+
+    <androidx.gridlayout.widget.GridLayout
+        android:layout_width="163dp"
+        android:layout_height="53dp"
+        app:layout_constraintBottom_toBottomOf="@+id/divider"
+        app:layout_constraintEnd_toEndOf="@+id/divider"
+        app:layout_constraintHorizontal_bias="0.45"
+        app:layout_constraintStart_toStartOf="@+id/divider"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.71000004">
+
+        <Button
+            android:id="@+id/equate"
+            android:layout_width="166dp"
+            android:layout_height="50dp"
+            android:text="@string/equate"
+            app:layout_column="0"
+            app:layout_row="0" />
+    </androidx.gridlayout.widget.GridLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

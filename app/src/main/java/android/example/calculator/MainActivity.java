@@ -13,10 +13,13 @@ public class MainActivity extends AppCompatActivity {
     private int total;
     private int toBeTotaled;
     private TextView textView;
+    private String operationWindow;
+    private String addChar;
     public MainActivity() {
         total = 0;
         toBeTotaled = 0;
-
+        operationWindow = "";
+        addChar = "+";
     }
 
     @Override
@@ -37,6 +40,7 @@ public class MainActivity extends AppCompatActivity {
                 textView.setText("0");
                 total = 0;
                 toBeTotaled = 0;
+                operationWindow = "";
             }
         });
 
@@ -53,7 +57,7 @@ public class MainActivity extends AppCompatActivity {
                 } else {
                     textView.setText("0");
                 }
-                
+
 
 
             }
@@ -65,6 +69,7 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 textView = (TextView) findViewById(R.id.textView);
+                operationWindow += "1";
                 toBeTotaled += 1;
                 if(toBeTotaled > 1) {
                     textView.setText(textView.getText()+"1");
@@ -231,11 +236,35 @@ public class MainActivity extends AppCompatActivity {
         });
 
         // Add
-        ImageButton add =  findViewById(R.id.add);
+        final ImageButton add =  findViewById(R.id.add);
         add.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Button one = findViewById(R.id.button);
+                if (operationWindow.contains(addChar) == false) {
+                    operationWindow += addChar;
+                } // if
+            }
+        });
+
+        // Equate
+
+        Button equate =  findViewById(R.id.equate);
+        equate.setOnClickListener(new View.OnClickListener() {
+            String num = "";
+            String num2 = "";
+            @Override
+            public void onClick(View v) {
+                for (int i = 0; i < operationWindow.length(); i++) {
+
+                    if (operationWindow.substring(i,i+1).equals(addChar) == false) {
+                            num += operationWindow.substring(i,i+1);
+                    } else {
+                        num2 += operationWindow.substring(i);
+                    }
+
+
+                }
+
 
             }
         });
