@@ -12,3 +12,6 @@ However, I am excited to one day make a quality game that will overthrow the cha
 12/27/2019
 Added the majority of the buttons required for a 4 function calculator. I just need to create the logic for the 4 functions now. 
 Once I recognize how to save the id of whatever button is pressed i can make my operation methods. I think if I make it so if when an operation button is pressed, it checks the value of total, and then waits for the next button to be pressed or something. Idk how you wait for an action as of now. 
+
+12/28/2019
+Equate button is going to parse the string of numbers based upon the operation symbol pressed, then it will split the two numbers based on the index of the operation in the string of numbers. I need to then calculate the two numbers based upon the symbol character chosen.
