@@ -15,3 +15,6 @@ Once I recognize how to save the id of whatever button is pressed i can make my 
 
 12/28/2019
 Equate button is going to parse the string of numbers based upon the operation symbol pressed, then it will split the two numbers based on the index of the operation in the string of numbers. I need to then calculate the two numbers based upon the symbol character chosen.
+
+12/29/2019
+Realized I need distinctive String and Int variables for both numbers seperated by the operand of the users choice. This way, I don't have to look through the entire operation string, and can immediately pull the numbers out to be solved. However, I'm going to have to do this for every number, and its beginning to look like a lot of repetitive code.
