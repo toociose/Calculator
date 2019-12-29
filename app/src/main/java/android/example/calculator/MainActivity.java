@@ -12,13 +12,17 @@ import android.widget.TextView;
 public class MainActivity extends AppCompatActivity {
     private int total;
     private int toBeTotaled;
+    private int sTBT;
     private TextView textView;
     private String operationWindow;
+    private String operationWindowTwo;
     private String addChar;
     public MainActivity() {
         total = 0;
+        sTBT = 0;
         toBeTotaled = 0;
         operationWindow = "";
+        operationWindowTwo = "";
         addChar = "+";
     }
 
@@ -70,8 +74,14 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(View v) {
                 textView = (TextView) findViewById(R.id.textView);
                 operationWindow += "1";
-                toBeTotaled += 1;
-                if(toBeTotaled > 1) {
+
+                if (!operationWindow.contains("+")) {
+                    toBeTotaled = Integer.parseInt(operationWindow);
+                } else {
+                    operationWindowTwo += "1";
+                    sTBT = Integer.parseInt(operationWindowTwo);
+                }
+                if ((toBeTotaled > 1) || (sTBT > 1)) {
                     textView.setText(textView.getText()+"1");
                 } else {
                     textView.setText("1");
@@ -92,7 +102,7 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(View v) {
                 textView = (TextView) findViewById(R.id.textView);
                 toBeTotaled += 2;
-                if(toBeTotaled > 2) {
+                if (toBeTotaled > 2) {
                     textView.setText(textView.getText()+"2");
                 } else {
                     textView.setText("2");
@@ -111,7 +121,7 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(View v) {
                 textView = (TextView) findViewById(R.id.textView);
                 toBeTotaled += 3;
-                if(toBeTotaled > 3) {
+                if (toBeTotaled > 3) {
                     textView.setText(textView.getText()+"3");
                 } else {
                     textView.setText("3");
@@ -130,7 +140,7 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(View v) {
                 textView = (TextView) findViewById(R.id.textView);
                 toBeTotaled += 4;
-                if(toBeTotaled > 4) {
+                if (toBeTotaled > 4) {
                     textView.setText(textView.getText()+"4");
                 } else {
                     textView.setText("4");
@@ -149,7 +159,7 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(View v) {
                 textView = (TextView) findViewById(R.id.textView);
                 toBeTotaled += 5;
-                if(toBeTotaled > 5) {
+                if (toBeTotaled > 5) {
                     textView.setText(textView.getText()+"5");
                 } else {
                     textView.setText("5");
@@ -168,7 +178,7 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(View v) {
                 textView = (TextView) findViewById(R.id.textView);
                 toBeTotaled += 6;
-                if(toBeTotaled > 6) {
+                if (toBeTotaled > 6) {
                     textView.setText(textView.getText()+"6");
                 } else {
                     textView.setText("6");
@@ -187,7 +197,7 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(View v) {
                 textView = (TextView) findViewById(R.id.textView);
                 toBeTotaled += 7;
-                if(toBeTotaled > 7) {
+                if (toBeTotaled > 7) {
                     textView.setText(textView.getText()+"7");
                 } else {
                     textView.setText("7");
@@ -206,7 +216,7 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(View v) {
                 textView = (TextView) findViewById(R.id.textView);
                 toBeTotaled += 8;
-                if(toBeTotaled > 8) {
+                if (toBeTotaled > 8) {
                     textView.setText(textView.getText()+"8");
                 } else {
                     textView.setText("8");
@@ -224,7 +234,7 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(View v) {
                 textView = (TextView) findViewById(R.id.textView);
                 toBeTotaled += 9;
-                if(toBeTotaled > 9) {
+                if (toBeTotaled > 9) {
                     textView.setText(textView.getText()+"9");
                 } else {
                     textView.setText("9");
@@ -264,7 +274,8 @@ public class MainActivity extends AppCompatActivity {
 
 
                 }
-
+                System.out.println(num);
+                System.out.println(num2);
 
             }
         });
