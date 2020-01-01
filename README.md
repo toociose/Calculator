@@ -18,3 +18,7 @@ Equate button is going to parse the string of numbers based upon the operation s
 
 12/29/2019
 Realized I need distinctive String and Int variables for both numbers separated by the operand of the users choice. This way, I don't have to look through the entire operation string, and can immediately pull the numbers out to be solved. However, I'm going to have to do this for every number, and its beginning to look like a lot of repetitive code.
+
+12/31/2019
+Add Button works completely for all numbers, i just need to set up the conditions for the other operations, which I think is not going to be as bad as figuring out how to format
+the addition logic. 

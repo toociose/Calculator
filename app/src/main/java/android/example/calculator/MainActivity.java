@@ -10,20 +10,42 @@ import android.widget.ImageButton;
 import android.widget.TextView;
 
 public class MainActivity extends AppCompatActivity {
-    private int total;
-    private int toBeTotaled;
-    private int sTBT;
-    private TextView textView;
-    private String operationWindow;
-    private String operationWindowTwo;
-    private String addChar;
+
+    protected int runs;
+    protected int total;
+    protected int toBeTotaled;
+    protected int sTBT;
+    protected TextView textView;
+    protected String operationWindow;
+    protected String operationWindowTwo;
+    protected String addChar;
+    protected String subChar;
+    protected String multiChar;
+    protected String divChar;
+
     public MainActivity() {
+
+        runs = 0;
         total = 0;
         sTBT = 0;
         toBeTotaled = 0;
         operationWindow = "";
         operationWindowTwo = "";
         addChar = "+";
+        subChar = "-";
+        multiChar = "*";
+        divChar = "/";
+    }
+
+    public void clear() {
+
+
+        toBeTotaled = 0;
+        operationWindow = "";
+        operationWindowTwo = "";
+        sTBT = 0;
+        runs = 0;
+
     }
 
     @Override
@@ -32,6 +54,8 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
         TextView empty = (TextView) findViewById(R.id.textView);
         empty.setText("0");
+
+
 /*
          Buttons of Calculator
          Clear
@@ -43,8 +67,7 @@ public class MainActivity extends AppCompatActivity {
                 textView = (TextView) findViewById(R.id.textView);
                 textView.setText("0");
                 total = 0;
-                toBeTotaled = 0;
-                operationWindow = "";
+                clear();
             }
         });
 
@@ -67,29 +90,62 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
-        // One
+
+        /*
+        * Lines 104 - 142 are for adding
+        * Lines 142 - ... are for subtracting
+        * */
         Button one = findViewById(R.id.button);
         one.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 textView = (TextView) findViewById(R.id.textView);
-                operationWindow += "1";
 
-                if (!operationWindow.contains("+")) {
-                    toBeTotaled = Integer.parseInt(operationWindow);
-                } else {
-                    operationWindowTwo += "1";
-                    sTBT = Integer.parseInt(operationWindowTwo);
-                }
-                if ((toBeTotaled > 1) || (sTBT > 1)) {
-                    textView.setText(textView.getText()+"1");
-                } else {
-                    textView.setText("1");
-                }
-                System.out.println(toBeTotaled);
+                if (runs > 0) {
+                    if (operationWindow.contains("+")) {
+                        String save = operationWindow;
+                        operationWindow = operationWindow.replace("+", "");
+                        System.out.println(operationWindow);
+                        toBeTotaled = Integer.parseInt(operationWindow);
+                        System.out.println("Total with plus sign");
+                        operationWindowTwo += "1";
+                        sTBT = Integer.parseInt(operationWindowTwo);
+                        operationWindow = save;
+                    }
+                    if ((toBeTotaled > total)) {
+                        textView.setText(textView.getText() + Integer.toString(total));
+
+                    } else {
+                        textView.setText(Integer.toString(total));
+                    }
+
+                } else { // multiple run logic... I hope
 
 
-            }
+                    operationWindow += "1";
+
+                    if (!operationWindow.contains("+")) {
+                        toBeTotaled = Integer.parseInt(operationWindow);
+                        System.out.println("1st 1");
+                    } else {
+                        operationWindowTwo += "1";
+                        sTBT = Integer.parseInt(operationWindowTwo);
+                        System.out.println("2nd 1");
+                    }
+                    if ((toBeTotaled > 1)) {
+                        textView.setText(textView.getText() + "1");
+
+                    } else {
+                        textView.setText("1");
+                    }
+
+                } // else for addition
+
+
+
+
+
+            }// Button One
         });
 
 
@@ -101,13 +157,19 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 textView = (TextView) findViewById(R.id.textView);
-                toBeTotaled += 2;
-                if (toBeTotaled > 2) {
+                operationWindow += 2;
+                if (!operationWindow.contains("+")) {
+                    toBeTotaled = Integer.parseInt(operationWindow);
+                } else {
+                    operationWindowTwo += "2";
+                    sTBT = Integer.parseInt(operationWindowTwo);
+                }
+                if ((toBeTotaled > 2)) {
                     textView.setText(textView.getText()+"2");
+
                 } else {
                     textView.setText("2");
                 }
-                System.out.println(toBeTotaled);
 
 
             }
@@ -256,27 +318,41 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
+        // Subtract
+        Button subtract = findViewById(R.id.subtract);
+        subtract.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if (operationWindow.contains(subChar) == false) {
+                    operationWindow += subChar;
+                } // if
+            }
+        });
+
         // Equate
 
         Button equate =  findViewById(R.id.equate);
         equate.setOnClickListener(new View.OnClickListener() {
-            String num = "";
-            String num2 = "";
+
             @Override
             public void onClick(View v) {
-                for (int i = 0; i < operationWindow.length(); i++) {
+                if (operationWindow.contains(addChar)) {
+                    System.out.println(toBeTotaled + " this is tbt");
+                    System.out.println(sTBT + " this is stbt");
+                    total = toBeTotaled + sTBT;
+                    textView.setText(Integer.toString(total));
+                    operationWindow = Integer.toString(total);
+                    operationWindowTwo = "";
 
-                    if (operationWindow.substring(i,i+1).equals(addChar) == false) {
-                            num += operationWindow.substring(i,i+1);
-                    } else {
-                        num2 += operationWindow.substring(i);
-                    }
+                } // add equate
 
-
-                }
-                System.out.println(num);
-                System.out.println(num2);
-
+                if (operationWindow.contains(subChar)) {
+                    total = toBeTotaled - sTBT;
+                    textView.setText(Integer.toString(total));
+                    operationWindow = Integer.toString(total);
+                    operationWindowTwo = "";
+                } // subtract equate
+            runs ++;
             }
         });
 
