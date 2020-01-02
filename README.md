@@ -22,3 +22,6 @@ Realized I need distinctive String and Int variables for both numbers separated 
 12/31/2019
 Add Button works completely for all numbers, i just need to set up the conditions for the other operations, which I think is not going to be as bad as figuring out how to format
 the addition logic. 
+
+1/2/2020
+Finished the main logic to the app for 4 functions, addition,subtraction,multiplication, and division. I just need to add a second orientation mode, but the main app is good for release.

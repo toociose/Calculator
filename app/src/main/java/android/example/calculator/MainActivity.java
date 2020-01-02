@@ -92,8 +92,8 @@ public class MainActivity extends AppCompatActivity {
 
 
         /*
-        * Lines 104 - 142 are for adding
-        * Lines 142 - ... are for subtracting
+        * Lines 104 - 168 are for doing the 4 operations with the number 1.
+        *
         * */
         Button one = findViewById(R.id.button);
         one.setOnClickListener(new View.OnClickListener() {
@@ -111,6 +111,33 @@ public class MainActivity extends AppCompatActivity {
                         operationWindowTwo += "1";
                         sTBT = Integer.parseInt(operationWindowTwo);
                         operationWindow = save;
+                    } else if (operationWindow.contains("-")) {
+                        String save = operationWindow;
+                        operationWindow = operationWindow.replace("-", "");
+                        System.out.println(operationWindow);
+                        toBeTotaled = Integer.parseInt(operationWindow);
+                        System.out.println("Total with minus sign");
+                        operationWindowTwo += "1";
+                        sTBT = Integer.parseInt(operationWindowTwo);
+                        operationWindow = save;
+                    } else if (operationWindow.contains("*")) {
+                        String save = operationWindow;
+                        operationWindow = operationWindow.replace("*", "");
+                        System.out.println(operationWindow);
+                        toBeTotaled = Integer.parseInt(operationWindow);
+                        System.out.println("Total with multiplication sign");
+                        operationWindowTwo += "1";
+                        sTBT = Integer.parseInt(operationWindowTwo);
+                        operationWindow = save;
+                    } else if (operationWindow.contains("/")) {
+                        String save = operationWindow;
+                        operationWindow = operationWindow.replace("/", "");
+                        System.out.println(operationWindow);
+                        toBeTotaled = Integer.parseInt(operationWindow);
+                        System.out.println("Total with division sign");
+                        operationWindowTwo += "1";
+                        sTBT = Integer.parseInt(operationWindowTwo);
+                        operationWindow = save;
                     }
                     if ((toBeTotaled > total)) {
                         textView.setText(textView.getText() + Integer.toString(total));
@@ -118,13 +145,12 @@ public class MainActivity extends AppCompatActivity {
                     } else {
                         textView.setText(Integer.toString(total));
                     }
-
                 } else { // multiple run logic... I hope
-
 
                     operationWindow += "1";
 
-                    if (!operationWindow.contains("+")) {
+                    if ((!operationWindow.contains("+")) && (!operationWindow.contains("-")) &&
+                            (!operationWindow.contains("*"))&&(!operationWindow.contains("/"))) {
                         toBeTotaled = Integer.parseInt(operationWindow);
                         System.out.println("1st 1");
                     } else {
@@ -132,18 +158,15 @@ public class MainActivity extends AppCompatActivity {
                         sTBT = Integer.parseInt(operationWindowTwo);
                         System.out.println("2nd 1");
                     }
-                    if ((toBeTotaled > 1)) {
+                    if ((toBeTotaled > 1) && (!operationWindow.contains("+")) && (!operationWindow.contains("-"))
+                            && (!operationWindow.contains("*")) && (!operationWindow.contains("/"))) {
                         textView.setText(textView.getText() + "1");
 
                     } else {
                         textView.setText("1");
                     }
 
-                } // else for addition
-
-
-
-
+                } //multiple run logic
 
             }// Button One
         });
@@ -157,19 +180,72 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 textView = (TextView) findViewById(R.id.textView);
-                operationWindow += 2;
-                if (!operationWindow.contains("+")) {
-                    toBeTotaled = Integer.parseInt(operationWindow);
-                } else {
-                    operationWindowTwo += "2";
-                    sTBT = Integer.parseInt(operationWindowTwo);
-                }
-                if ((toBeTotaled > 2)) {
-                    textView.setText(textView.getText()+"2");
+                if (runs > 0) {
+                    if (operationWindow.contains("+")) {
+                        String save = operationWindow;
+                        operationWindow = operationWindow.replace("+", "");
+                        System.out.println(operationWindow);
+                        toBeTotaled = Integer.parseInt(operationWindow);
+                        System.out.println("Total with plus sign");
+                        operationWindowTwo += "2";
+                        sTBT = Integer.parseInt(operationWindowTwo);
+                        operationWindow = save;
+                    } else if (operationWindow.contains("-")) {
+                        String save = operationWindow;
+                        operationWindow = operationWindow.replace("-", "");
+                        System.out.println(operationWindow);
+                        toBeTotaled = Integer.parseInt(operationWindow);
+                        System.out.println("Total with minus sign");
+                        operationWindowTwo += "2";
+                        sTBT = Integer.parseInt(operationWindowTwo);
+                        operationWindow = save;
+                    } else if (operationWindow.contains("*")) {
+                        String save = operationWindow;
+                        operationWindow = operationWindow.replace("*", "");
+                        System.out.println(operationWindow);
+                        toBeTotaled = Integer.parseInt(operationWindow);
+                        System.out.println("Total with multiplication sign");
+                        operationWindowTwo += "2";
+                        sTBT = Integer.parseInt(operationWindowTwo);
+                        operationWindow = save;
+                    } else if (operationWindow.contains("/")) {
+                        String save = operationWindow;
+                        operationWindow = operationWindow.replace("/", "");
+                        System.out.println(operationWindow);
+                        toBeTotaled = Integer.parseInt(operationWindow);
+                        System.out.println("Total with division sign");
+                        operationWindowTwo += "2";
+                        sTBT = Integer.parseInt(operationWindowTwo);
+                        operationWindow = save;
+                    }
+                    if ((toBeTotaled > total)) {
+                        textView.setText(textView.getText() + Integer.toString(total));
 
-                } else {
-                    textView.setText("2");
-                }
+                    } else {
+                        textView.setText(Integer.toString(total));
+                    }
+                } else { // multiple run logic... I hope
+
+                    operationWindow += "2";
+
+                    if ((!operationWindow.contains("+")) && (!operationWindow.contains("-")) &&
+                            (!operationWindow.contains("*"))&&(!operationWindow.contains("/"))) {
+                        toBeTotaled = Integer.parseInt(operationWindow);
+                        System.out.println("1st 2");
+                    } else {
+                        operationWindowTwo += "2";
+                        sTBT = Integer.parseInt(operationWindowTwo);
+                        System.out.println("2nd 2");
+                    }
+                    if ((toBeTotaled > 2) && (!operationWindow.contains("+")) && (!operationWindow.contains("-"))
+                            && (!operationWindow.contains("*")) && (!operationWindow.contains("/"))) {
+                        textView.setText(textView.getText() + "2");
+
+                    } else {
+                        textView.setText("2");
+                    }
+
+                } //multiple run logic
 
 
             }
@@ -182,16 +258,78 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 textView = (TextView) findViewById(R.id.textView);
-                toBeTotaled += 3;
-                if (toBeTotaled > 3) {
-                    textView.setText(textView.getText()+"3");
-                } else {
-                    textView.setText("3");
-                }
-                System.out.println(toBeTotaled);
+                if (runs > 0) {
+                    if (operationWindow.contains("+")) {
+                        String save = operationWindow;
+                        operationWindow = operationWindow.replace("+", "");
+                        System.out.println(operationWindow);
+                        toBeTotaled = Integer.parseInt(operationWindow);
+                        System.out.println("Total with plus sign");
+                        operationWindowTwo += "3";
+                        sTBT = Integer.parseInt(operationWindowTwo);
+                        operationWindow = save;
+                    } else if (operationWindow.contains("-")) {
+                        String save = operationWindow;
+                        operationWindow = operationWindow.replace("-", "");
+                        System.out.println(operationWindow);
+                        toBeTotaled = Integer.parseInt(operationWindow);
+                        System.out.println("Total with minus sign");
+                        operationWindowTwo += "3";
+                        sTBT = Integer.parseInt(operationWindowTwo);
+                        operationWindow = save;
+                    } else if (operationWindow.contains("*")) {
+                        String save = operationWindow;
+                        operationWindow = operationWindow.replace("*", "");
+                        System.out.println(operationWindow);
+                        toBeTotaled = Integer.parseInt(operationWindow);
+                        System.out.println("Total with multiplication sign");
+                        operationWindowTwo += "3";
+                        sTBT = Integer.parseInt(operationWindowTwo);
+                        operationWindow = save;
+                    } else if (operationWindow.contains("/")) {
+                        String save = operationWindow;
+                        operationWindow = operationWindow.replace("/", "");
+                        System.out.println(operationWindow);
+                        toBeTotaled = Integer.parseInt(operationWindow);
+                        System.out.println("Total with division sign");
+                        operationWindowTwo += "3";
+                        sTBT = Integer.parseInt(operationWindowTwo);
+                        operationWindow = save;
+                    }
+                    if ((toBeTotaled > total)) {
+                        textView.setText(textView.getText() + Integer.toString(total));
+
+                    } else {
+                        textView.setText(Integer.toString(total));
+                    }
+                } else { // multiple run logic... I hope
+
+                    operationWindow += "3";
+
+                    if ((!operationWindow.contains("+")) && (!operationWindow.contains("-")) &&
+                            (!operationWindow.contains("*"))&&(!operationWindow.contains("/"))) {
+                        toBeTotaled = Integer.parseInt(operationWindow);
+                        System.out.println("1st 3");
+                    } else {
+                        operationWindowTwo += "3";
+                        sTBT = Integer.parseInt(operationWindowTwo);
+                        System.out.println("2nd 3");
+                    }
+                    if ((toBeTotaled > 3) && (!operationWindow.contains("+")) && (!operationWindow.contains("-"))
+                            && (!operationWindow.contains("*")) && (!operationWindow.contains("/"))) {
+                        textView.setText(textView.getText() + "3");
+
+                    } else {
+                        textView.setText("3");
+                    }
+
+                } //multiple run logic
 
 
             }
+
+
+
         });
 
 
@@ -201,13 +339,72 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 textView = (TextView) findViewById(R.id.textView);
-                toBeTotaled += 4;
-                if (toBeTotaled > 4) {
-                    textView.setText(textView.getText()+"4");
-                } else {
-                    textView.setText("4");
-                }
-                System.out.println(toBeTotaled);
+                if (runs > 0) {
+                    if (operationWindow.contains("+")) {
+                        String save = operationWindow;
+                        operationWindow = operationWindow.replace("+", "");
+                        System.out.println(operationWindow);
+                        toBeTotaled = Integer.parseInt(operationWindow);
+                        System.out.println("Total with plus sign");
+                        operationWindowTwo += "4";
+                        sTBT = Integer.parseInt(operationWindowTwo);
+                        operationWindow = save;
+                    } else if (operationWindow.contains("-")) {
+                        String save = operationWindow;
+                        operationWindow = operationWindow.replace("-", "");
+                        System.out.println(operationWindow);
+                        toBeTotaled = Integer.parseInt(operationWindow);
+                        System.out.println("Total with minus sign");
+                        operationWindowTwo += "4";
+                        sTBT = Integer.parseInt(operationWindowTwo);
+                        operationWindow = save;
+                    } else if (operationWindow.contains("*")) {
+                        String save = operationWindow;
+                        operationWindow = operationWindow.replace("*", "");
+                        System.out.println(operationWindow);
+                        toBeTotaled = Integer.parseInt(operationWindow);
+                        System.out.println("Total with multiplication sign");
+                        operationWindowTwo += "4";
+                        sTBT = Integer.parseInt(operationWindowTwo);
+                        operationWindow = save;
+                    } else if (operationWindow.contains("/")) {
+                        String save = operationWindow;
+                        operationWindow = operationWindow.replace("/", "");
+                        System.out.println(operationWindow);
+                        toBeTotaled = Integer.parseInt(operationWindow);
+                        System.out.println("Total with division sign");
+                        operationWindowTwo += "4";
+                        sTBT = Integer.parseInt(operationWindowTwo);
+                        operationWindow = save;
+                    }
+                    if ((toBeTotaled > total)) {
+                        textView.setText(textView.getText() + Integer.toString(total));
+
+                    } else {
+                        textView.setText(Integer.toString(total));
+                    }
+                } else { // multiple run logic... I hope
+
+                    operationWindow += "4";
+
+                    if ((!operationWindow.contains("+")) && (!operationWindow.contains("-")) &&
+                            (!operationWindow.contains("*"))&&(!operationWindow.contains("/"))) {
+                        toBeTotaled = Integer.parseInt(operationWindow);
+                        System.out.println("1st 4");
+                    } else {
+                        operationWindowTwo += "4";
+                        sTBT = Integer.parseInt(operationWindowTwo);
+                        System.out.println("2nd 4");
+                    }
+                    if ((toBeTotaled > 4) && (!operationWindow.contains("+")) && (!operationWindow.contains("-"))
+                            && (!operationWindow.contains("*")) && (!operationWindow.contains("/"))) {
+                        textView.setText(textView.getText() + "4");
+
+                    } else {
+                        textView.setText("4");
+                    }
+
+                } //multiple run logic
 
 
             }
@@ -220,13 +417,72 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 textView = (TextView) findViewById(R.id.textView);
-                toBeTotaled += 5;
-                if (toBeTotaled > 5) {
-                    textView.setText(textView.getText()+"5");
-                } else {
-                    textView.setText("5");
-                }
-                System.out.println(toBeTotaled);
+                if (runs > 0) {
+                    if (operationWindow.contains("+")) {
+                        String save = operationWindow;
+                        operationWindow = operationWindow.replace("+", "");
+                        System.out.println(operationWindow);
+                        toBeTotaled = Integer.parseInt(operationWindow);
+                        System.out.println("Total with plus sign");
+                        operationWindowTwo += "5";
+                        sTBT = Integer.parseInt(operationWindowTwo);
+                        operationWindow = save;
+                    } else if (operationWindow.contains("-")) {
+                        String save = operationWindow;
+                        operationWindow = operationWindow.replace("-", "");
+                        System.out.println(operationWindow);
+                        toBeTotaled = Integer.parseInt(operationWindow);
+                        System.out.println("Total with minus sign");
+                        operationWindowTwo += "5";
+                        sTBT = Integer.parseInt(operationWindowTwo);
+                        operationWindow = save;
+                    } else if (operationWindow.contains("*")) {
+                        String save = operationWindow;
+                        operationWindow = operationWindow.replace("*", "");
+                        System.out.println(operationWindow);
+                        toBeTotaled = Integer.parseInt(operationWindow);
+                        System.out.println("Total with multiplication sign");
+                        operationWindowTwo += "5";
+                        sTBT = Integer.parseInt(operationWindowTwo);
+                        operationWindow = save;
+                    } else if (operationWindow.contains("/")) {
+                        String save = operationWindow;
+                        operationWindow = operationWindow.replace("/", "");
+                        System.out.println(operationWindow);
+                        toBeTotaled = Integer.parseInt(operationWindow);
+                        System.out.println("Total with division sign");
+                        operationWindowTwo += "5";
+                        sTBT = Integer.parseInt(operationWindowTwo);
+                        operationWindow = save;
+                    }
+                    if ((toBeTotaled > total)) {
+                        textView.setText(textView.getText() + Integer.toString(total));
+
+                    } else {
+                        textView.setText(Integer.toString(total));
+                    }
+                } else { // multiple run logic... I hope
+
+                    operationWindow += "5";
+
+                    if ((!operationWindow.contains("+")) && (!operationWindow.contains("-")) &&
+                            (!operationWindow.contains("*"))&&(!operationWindow.contains("/"))) {
+                        toBeTotaled = Integer.parseInt(operationWindow);
+                        System.out.println("1st 5");
+                    } else {
+                        operationWindowTwo += "5";
+                        sTBT = Integer.parseInt(operationWindowTwo);
+                        System.out.println("2nd 5");
+                    }
+                    if ((toBeTotaled > 5) && (!operationWindow.contains("+")) && (!operationWindow.contains("-"))
+                            && (!operationWindow.contains("*")) && (!operationWindow.contains("/"))) {
+                        textView.setText(textView.getText() + "5");
+
+                    } else {
+                        textView.setText("5");
+                    }
+
+                } //multiple run logic
 
 
             }
@@ -239,13 +495,72 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 textView = (TextView) findViewById(R.id.textView);
-                toBeTotaled += 6;
-                if (toBeTotaled > 6) {
-                    textView.setText(textView.getText()+"6");
-                } else {
-                    textView.setText("6");
-                }
-                System.out.println(toBeTotaled);
+                if (runs > 0) {
+                    if (operationWindow.contains("+")) {
+                        String save = operationWindow;
+                        operationWindow = operationWindow.replace("+", "");
+                        System.out.println(operationWindow);
+                        toBeTotaled = Integer.parseInt(operationWindow);
+                        System.out.println("Total with plus sign");
+                        operationWindowTwo += "6";
+                        sTBT = Integer.parseInt(operationWindowTwo);
+                        operationWindow = save;
+                    } else if (operationWindow.contains("-")) {
+                        String save = operationWindow;
+                        operationWindow = operationWindow.replace("-", "");
+                        System.out.println(operationWindow);
+                        toBeTotaled = Integer.parseInt(operationWindow);
+                        System.out.println("Total with minus sign");
+                        operationWindowTwo += "6";
+                        sTBT = Integer.parseInt(operationWindowTwo);
+                        operationWindow = save;
+                    } else if (operationWindow.contains("*")) {
+                        String save = operationWindow;
+                        operationWindow = operationWindow.replace("*", "");
+                        System.out.println(operationWindow);
+                        toBeTotaled = Integer.parseInt(operationWindow);
+                        System.out.println("Total with multiplication sign");
+                        operationWindowTwo += "6";
+                        sTBT = Integer.parseInt(operationWindowTwo);
+                        operationWindow = save;
+                    } else if (operationWindow.contains("/")) {
+                        String save = operationWindow;
+                        operationWindow = operationWindow.replace("/", "");
+                        System.out.println(operationWindow);
+                        toBeTotaled = Integer.parseInt(operationWindow);
+                        System.out.println("Total with division sign");
+                        operationWindowTwo += "6";
+                        sTBT = Integer.parseInt(operationWindowTwo);
+                        operationWindow = save;
+                    }
+                    if ((toBeTotaled > total)) {
+                        textView.setText(textView.getText() + Integer.toString(total));
+
+                    } else {
+                        textView.setText(Integer.toString(total));
+                    }
+                } else { // multiple run logic... I hope
+
+                    operationWindow += "6";
+
+                    if ((!operationWindow.contains("+")) && (!operationWindow.contains("-")) &&
+                            (!operationWindow.contains("*"))&&(!operationWindow.contains("/"))) {
+                        toBeTotaled = Integer.parseInt(operationWindow);
+                        System.out.println("1st 6");
+                    } else {
+                        operationWindowTwo += "6";
+                        sTBT = Integer.parseInt(operationWindowTwo);
+                        System.out.println("2nd 6");
+                    }
+                    if ((toBeTotaled > 6) && (!operationWindow.contains("+")) && (!operationWindow.contains("-"))
+                            && (!operationWindow.contains("*")) && (!operationWindow.contains("/"))) {
+                        textView.setText(textView.getText() + "6");
+
+                    } else {
+                        textView.setText("6");
+                    }
+
+                } //multiple run logic
 
 
             }
@@ -258,13 +573,72 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 textView = (TextView) findViewById(R.id.textView);
-                toBeTotaled += 7;
-                if (toBeTotaled > 7) {
-                    textView.setText(textView.getText()+"7");
-                } else {
-                    textView.setText("7");
-                }
-                System.out.println(toBeTotaled);
+                if (runs > 0) {
+                    if (operationWindow.contains("+")) {
+                        String save = operationWindow;
+                        operationWindow = operationWindow.replace("+", "");
+                        System.out.println(operationWindow);
+                        toBeTotaled = Integer.parseInt(operationWindow);
+                        System.out.println("Total with plus sign");
+                        operationWindowTwo += "7";
+                        sTBT = Integer.parseInt(operationWindowTwo);
+                        operationWindow = save;
+                    } else if (operationWindow.contains("-")) {
+                        String save = operationWindow;
+                        operationWindow = operationWindow.replace("-", "");
+                        System.out.println(operationWindow);
+                        toBeTotaled = Integer.parseInt(operationWindow);
+                        System.out.println("Total with minus sign");
+                        operationWindowTwo += "7";
+                        sTBT = Integer.parseInt(operationWindowTwo);
+                        operationWindow = save;
+                    } else if (operationWindow.contains("*")) {
+                        String save = operationWindow;
+                        operationWindow = operationWindow.replace("*", "");
+                        System.out.println(operationWindow);
+                        toBeTotaled = Integer.parseInt(operationWindow);
+                        System.out.println("Total with multiplication sign");
+                        operationWindowTwo += "7";
+                        sTBT = Integer.parseInt(operationWindowTwo);
+                        operationWindow = save;
+                    } else if (operationWindow.contains("/")) {
+                        String save = operationWindow;
+                        operationWindow = operationWindow.replace("/", "");
+                        System.out.println(operationWindow);
+                        toBeTotaled = Integer.parseInt(operationWindow);
+                        System.out.println("Total with division sign");
+                        operationWindowTwo += "7";
+                        sTBT = Integer.parseInt(operationWindowTwo);
+                        operationWindow = save;
+                    }
+                    if ((toBeTotaled > total)) {
+                        textView.setText(textView.getText() + Integer.toString(total));
+
+                    } else {
+                        textView.setText(Integer.toString(total));
+                    }
+                } else { // multiple run logic... I hope
+
+                    operationWindow += "7";
+
+                    if ((!operationWindow.contains("+")) && (!operationWindow.contains("-")) &&
+                            (!operationWindow.contains("*"))&&(!operationWindow.contains("/"))) {
+                        toBeTotaled = Integer.parseInt(operationWindow);
+                        System.out.println("1st 7");
+                    } else {
+                        operationWindowTwo += "7";
+                        sTBT = Integer.parseInt(operationWindowTwo);
+                        System.out.println("2nd 7");
+                    }
+                    if ((toBeTotaled > 7) && (!operationWindow.contains("+")) && (!operationWindow.contains("-"))
+                            && (!operationWindow.contains("*")) && (!operationWindow.contains("/"))) {
+                        textView.setText(textView.getText() + "7");
+
+                    } else {
+                        textView.setText("7");
+                    }
+
+                } //multiple run logic
 
 
             }
@@ -277,13 +651,72 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 textView = (TextView) findViewById(R.id.textView);
-                toBeTotaled += 8;
-                if (toBeTotaled > 8) {
-                    textView.setText(textView.getText()+"8");
-                } else {
-                    textView.setText("8");
-                }
-                System.out.println(toBeTotaled);
+                if (runs > 0) {
+                    if (operationWindow.contains("+")) {
+                        String save = operationWindow;
+                        operationWindow = operationWindow.replace("+", "");
+                        System.out.println(operationWindow);
+                        toBeTotaled = Integer.parseInt(operationWindow);
+                        System.out.println("Total with plus sign");
+                        operationWindowTwo += "8";
+                        sTBT = Integer.parseInt(operationWindowTwo);
+                        operationWindow = save;
+                    } else if (operationWindow.contains("-")) {
+                        String save = operationWindow;
+                        operationWindow = operationWindow.replace("-", "");
+                        System.out.println(operationWindow);
+                        toBeTotaled = Integer.parseInt(operationWindow);
+                        System.out.println("Total with minus sign");
+                        operationWindowTwo += "8";
+                        sTBT = Integer.parseInt(operationWindowTwo);
+                        operationWindow = save;
+                    } else if (operationWindow.contains("*")) {
+                        String save = operationWindow;
+                        operationWindow = operationWindow.replace("*", "");
+                        System.out.println(operationWindow);
+                        toBeTotaled = Integer.parseInt(operationWindow);
+                        System.out.println("Total with multiplication sign");
+                        operationWindowTwo += "8";
+                        sTBT = Integer.parseInt(operationWindowTwo);
+                        operationWindow = save;
+                    } else if (operationWindow.contains("/")) {
+                        String save = operationWindow;
+                        operationWindow = operationWindow.replace("/", "");
+                        System.out.println(operationWindow);
+                        toBeTotaled = Integer.parseInt(operationWindow);
+                        System.out.println("Total with division sign");
+                        operationWindowTwo += "8";
+                        sTBT = Integer.parseInt(operationWindowTwo);
+                        operationWindow = save;
+                    }
+                    if ((toBeTotaled > total)) {
+                        textView.setText(textView.getText() + Integer.toString(total));
+
+                    } else {
+                        textView.setText(Integer.toString(total));
+                    }
+                } else { // multiple run logic... I hope
+
+                    operationWindow += "8";
+
+                    if ((!operationWindow.contains("+")) && (!operationWindow.contains("-")) &&
+                            (!operationWindow.contains("*"))&&(!operationWindow.contains("/"))) {
+                        toBeTotaled = Integer.parseInt(operationWindow);
+                        System.out.println("1st 8");
+                    } else {
+                        operationWindowTwo += "8";
+                        sTBT = Integer.parseInt(operationWindowTwo);
+                        System.out.println("2nd 8");
+                    }
+                    if ((toBeTotaled > 8) && (!operationWindow.contains("+")) && (!operationWindow.contains("-"))
+                            && (!operationWindow.contains("*")) && (!operationWindow.contains("/"))) {
+                        textView.setText(textView.getText() + "8");
+
+                    } else {
+                        textView.setText("8");
+                    }
+
+                } //multiple run logic
 
 
             }
@@ -295,13 +728,72 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 textView = (TextView) findViewById(R.id.textView);
-                toBeTotaled += 9;
-                if (toBeTotaled > 9) {
-                    textView.setText(textView.getText()+"9");
-                } else {
-                    textView.setText("9");
-                }
-                System.out.println(toBeTotaled);
+                if (runs > 0) {
+                    if (operationWindow.contains("+")) {
+                        String save = operationWindow;
+                        operationWindow = operationWindow.replace("+", "");
+                        System.out.println(operationWindow);
+                        toBeTotaled = Integer.parseInt(operationWindow);
+                        System.out.println("Total with plus sign");
+                        operationWindowTwo += "9";
+                        sTBT = Integer.parseInt(operationWindowTwo);
+                        operationWindow = save;
+                    } else if (operationWindow.contains("-")) {
+                        String save = operationWindow;
+                        operationWindow = operationWindow.replace("-", "");
+                        System.out.println(operationWindow);
+                        toBeTotaled = Integer.parseInt(operationWindow);
+                        System.out.println("Total with minus sign");
+                        operationWindowTwo += "9";
+                        sTBT = Integer.parseInt(operationWindowTwo);
+                        operationWindow = save;
+                    } else if (operationWindow.contains("*")) {
+                        String save = operationWindow;
+                        operationWindow = operationWindow.replace("*", "");
+                        System.out.println(operationWindow);
+                        toBeTotaled = Integer.parseInt(operationWindow);
+                        System.out.println("Total with multiplication sign");
+                        operationWindowTwo += "9";
+                        sTBT = Integer.parseInt(operationWindowTwo);
+                        operationWindow = save;
+                    } else if (operationWindow.contains("/")) {
+                        String save = operationWindow;
+                        operationWindow = operationWindow.replace("/", "");
+                        System.out.println(operationWindow);
+                        toBeTotaled = Integer.parseInt(operationWindow);
+                        System.out.println("Total with division sign");
+                        operationWindowTwo += "9";
+                        sTBT = Integer.parseInt(operationWindowTwo);
+                        operationWindow = save;
+                    }
+                    if ((toBeTotaled > total)) {
+                        textView.setText(textView.getText() + Integer.toString(total));
+
+                    } else {
+                        textView.setText(Integer.toString(total));
+                    }
+                } else { // multiple run logic... I hope
+
+                    operationWindow += "9";
+
+                    if ((!operationWindow.contains("+")) && (!operationWindow.contains("-")) &&
+                            (!operationWindow.contains("*"))&&(!operationWindow.contains("/"))) {
+                        toBeTotaled = Integer.parseInt(operationWindow);
+                        System.out.println("1st 9");
+                    } else {
+                        operationWindowTwo += "9";
+                        sTBT = Integer.parseInt(operationWindowTwo);
+                        System.out.println("2nd 9");
+                    }
+                    if ((toBeTotaled > 9) && (!operationWindow.contains("+")) && (!operationWindow.contains("-"))
+                            && (!operationWindow.contains("*")) && (!operationWindow.contains("/"))) {
+                        textView.setText(textView.getText() + "9");
+
+                    } else {
+                        textView.setText("9");
+                    }
+
+                } //multiple run logic
 
 
             }
@@ -329,6 +821,28 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
+        // Multiplication
+        Button multiply = findViewById(R.id.multiply);
+        multiply.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if (operationWindow.contains(multiChar) == false) {
+                    operationWindow += multiChar;
+                } // if
+            }
+        });
+
+        // divide
+        Button divide = findViewById(R.id.dd);
+        divide.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if (operationWindow.contains(divChar) == false) {
+                    operationWindow += divChar;
+                } // if
+            }
+        });
+
         // Equate
 
         Button equate =  findViewById(R.id.equate);
@@ -344,14 +858,22 @@ public class MainActivity extends AppCompatActivity {
                     operationWindow = Integer.toString(total);
                     operationWindowTwo = "";
 
-                } // add equate
-
-                if (operationWindow.contains(subChar)) {
+                } else if (operationWindow.contains(subChar)) {
                     total = toBeTotaled - sTBT;
                     textView.setText(Integer.toString(total));
                     operationWindow = Integer.toString(total);
                     operationWindowTwo = "";
-                } // subtract equate
+                } else if (operationWindow.contains(multiChar)) {
+                    total = toBeTotaled * sTBT;
+                    textView.setText(Integer.toString(total));
+                    operationWindow = Integer.toString(total);
+                    operationWindowTwo = "";
+                } else if (operationWindow.contains(divChar)) {
+                    total = toBeTotaled / sTBT;
+                    textView.setText(Integer.toString(total));
+                    operationWindow = Integer.toString(total);
+                    operationWindowTwo = "";
+                } // divide equate
             runs ++;
             }
         });
