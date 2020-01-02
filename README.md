@@ -25,3 +25,11 @@ the addition logic.
 
 1/2/2020
 Finished the main logic to the app for 4 functions, addition,subtraction,multiplication, and division. I just need to add a second orientation mode, but the main app is good for release.
+
+Things I learned: 
+I realized the many sub-steps necessary to create an app, even before beginning to code. 
+I also realized how important it is to setup an image of what you want your app to look like, and the
+limitations involved with that design choice. The most important thing I learned is that making apps for multiple devices is 
+something I need to understand. While working on this project I realized that my personal phone(Galaxy S7) showed the app differently than 
+the demo phone I was using in Android Studio, which led me to realize there must be a way to make the app look correct on all devices.
+That revelation has given me new interest in the development of my next application. 

@@ -11,7 +11,7 @@ import android.widget.TextView;
 
 /**
  * This Code was created by Clayton A. Seals II and is not to be used for anything other than educational purposes, and is meant to be a stepping stone
- * to learning more efficient code practices involving android apps. 
+ * to learning more efficient code practices involving android apps.
  */
 public class MainActivity extends AppCompatActivity {
 
