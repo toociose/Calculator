@@ -1,7 +1,7 @@
 1. Learn Android Studio
 2. Maintain motivation to complete calculator
 3. Complete Calculator
-(Currently on Step 2)
+
 
 12/26/2019
 Decided to end the year off doing something I've always wanted to do, which is make an app. 
